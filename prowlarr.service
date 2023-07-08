@@ -1,0 +1,15 @@
+[Unit]
+Description=Indexer manager/proxy
+
+[Service]
+ExecStart=/usr/lib64/prowlarr/Prowlarr -nobrowser -data /var/lib/prowlarr
+User=prowlarr
+Group=prowlarr
+Restart=on-failure
+RestartSec=5
+
+[Unit]
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
