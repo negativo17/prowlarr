@@ -27,7 +27,7 @@
 
 Name:           prowlarr
 Version:        1.7.1.3684
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -52,10 +52,6 @@ Requires(post): firewalld-filesystem
 Requires:       libmediainfo
 Requires:       sqlite
 Requires(pre):  shadow-utils
-
-%if 0%{?rhel} >= 8 || 0%{?fedora}
-Requires:       (%{name}-selinux if selinux-policy)
-%endif
 
 %description
 Prowlarr supports management of both Torrent Trackers and Usenet Indexers. It
@@ -143,6 +139,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Tue Jul 11 2023 Simone Caronni <negativo17@gmail.com> - 1.7.1.3684-2
+- Drop selinux-policy requirement (for now).
+
 * Tue Jul 11 2023 Simone Caronni <negativo17@gmail.com> - 1.7.1.3684-1
 - Update to 1.7.1.3684.
 
