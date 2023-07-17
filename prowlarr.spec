@@ -26,8 +26,8 @@
 %endif
 
 Name:           prowlarr
-Version:        1.7.1.3684
-Release:        2%{?dist}
+Version:        1.7.2.3710
+Release:        1%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -139,6 +139,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Mon Jul 17 2023 Simone Caronni <negativo17@gmail.com> - 1.7.2.3710-1
+- Update to 1.7.2.3710.
+
 * Tue Jul 11 2023 Simone Caronni <negativo17@gmail.com> - 1.7.1.3684-2
 - Drop selinux-policy requirement (for now).
 
