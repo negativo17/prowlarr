@@ -26,7 +26,7 @@
 %endif
 
 Name:           prowlarr
-Version:        1.14.1.4316
+Version:        1.14.2.4318
 Release:        1%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
@@ -133,6 +133,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Tue Mar 12 2024 Simone Caronni <negativo17@gmail.com> - 1.14.2.4318-1
+- Update to 1.14.2.4318.
+
 * Sun Mar 03 2024 Simone Caronni <negativo17@gmail.com> - 1.14.1.4316-1
 - Update to 1.14.1.4316.
 
