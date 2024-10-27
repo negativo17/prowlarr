@@ -7,7 +7,7 @@
 %global user %{name}
 %global group %{name}
 
-%global dotnet 6.0
+%global dotnet 8.0
 
 %ifarch x86_64
 %global rid x64
@@ -89,6 +89,7 @@ dotnet msbuild -restore src/Prowlarr.sln \
     -p:RuntimeIdentifiers=linux-%{rid} \
     -p:Configuration=Release \
     -p:Platform=Posix \
+    -p:SelfContained=true \
     -v:normal
 
 # Use a huge timeout for aarch64 builds
@@ -99,7 +100,7 @@ yarn run build --mode production
 mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
 
-cp -a _output/net%{dotnet}/* _output/UI %{buildroot}%{_libdir}/%{name}/
+cp -a _output/net*/* _output/UI %{buildroot}%{_libdir}/%{name}/
 
 install -D -m 0644 -p %{SOURCE10} %{buildroot}%{_unitdir}/%{name}.service
 install -D -m 0644 -p %{SOURCE11} %{buildroot}%{_prefix}/lib/firewalld/services/%{name}.xml
@@ -135,6 +136,7 @@ exit 0
 %changelog
 * Sun Oct 27 2024 Simone Caronni <negativo17@gmail.com> - 1.25.4.4818-1
 - Update to 1.25.4.4818.
+- Switch to .net 8.0 for building.
 
 * Thu Oct 10 2024 Simone Caronni <negativo17@gmail.com> - 1.24.3.4754-1
 - Update to 1.24.3.4754.
