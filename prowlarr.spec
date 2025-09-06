@@ -62,6 +62,9 @@ do it all).
 %prep
 %autosetup -n Prowlarr-%{version}
 
+# Accomodate old SDK versions
+rm -f global.json
+
 # Remove test coverage and Windows specific stuff from project file
 pushd src
 dotnet sln Prowlarr.sln remove \
