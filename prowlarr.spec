@@ -27,7 +27,7 @@
 
 Name:           prowlarr
 Version:        2.0.5.5160
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -96,6 +96,8 @@ dotnet msbuild -restore src/Prowlarr.sln \
 yarn install --frozen-lockfile --network-timeout 1000000
 yarn run build --mode production
 
+find . -name libcoreclrtraceptprovider.so -delete
+
 %install
 mkdir -p %{buildroot}%{_libdir}/%{name}
 mkdir -p %{buildroot}%{_sharedstatedir}/%{name}
@@ -134,6 +136,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sat Sep 06 2025 Simone Caronni <negativo17@gmail.com> - 2.0.5.5160-2
+- Make sure tracerpt is disabled, it requires an old liblttng-ust.
+
 * Thu Sep 04 2025 Simone Caronni <negativo17@gmail.com> - 2.0.5.5160-1
 - Update to 2.0.5.5160.
 
