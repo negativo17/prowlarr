@@ -26,8 +26,8 @@
 %endif
 
 Name:           prowlarr
-Version:        2.0.5.5160
-Release:        2%{?dist}
+Version:        2.1.5.5216
+Release:        1%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -139,6 +139,9 @@ exit 0
 %{_unitdir}/%{name}.service
 
 %changelog
+* Sun Nov 09 2025 Simone Caronni <negativo17@gmail.com> - 2.1.5.5216-1
+- Update to 2.1.5.5216.
+
 * Sat Sep 06 2025 Simone Caronni <negativo17@gmail.com> - 2.0.5.5160-2
 - Make sure tracerpt is disabled, it requires an old liblttng-ust.
 
