@@ -26,8 +26,8 @@
 %endif
 
 Name:           prowlarr
-Version:        2.1.5.5216
-Release:        2%{?dist}
+Version:        2.3.0.5236
+Release:        1%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -134,6 +134,9 @@ find %{buildroot} -name "ffprobe" -exec chmod 0755 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Thu Nov 20 2025 Simone Caronni <negativo17@gmail.com> - 2.3.0.5236-1
+- Update to 2.3.0.5236.
+
 * Thu Nov 20 2025 Simone Caronni <negativo17@gmail.com> - 2.1.5.5216-2
 - Switch to sysusers.d
 
