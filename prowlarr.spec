@@ -27,7 +27,7 @@
 
 Name:           prowlarr
 Version:        2.5.2.5491
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -38,6 +38,7 @@ Source0:        https://github.com/Prowlarr/Prowlarr/archive/v%{version}.tar.gz#
 Source1:        %{name}.sysusers.conf
 Source2:        %{name}.service
 Source3:        %{name}.xml
+Patch0:         https://patch-diff.githubusercontent.com/raw/Prowlarr/Prowlarr/pull/2808.patch
 
 BuildRequires:  dotnet-sdk-%{dotnet}
 BuildRequires:  firewalld-filesystem
@@ -60,7 +61,7 @@ complete management of your indexers with no per app Indexer setup required (we
 do it all).
 
 %prep
-%autosetup -n Prowlarr-%{version}
+%autosetup -p1 -n Prowlarr-%{version}
 
 # Accomodate old SDK versions
 rm -f global.json
@@ -134,6 +135,12 @@ find %{buildroot} -name "ffprobe" -exec chmod 0755 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Wed Sep 02 2026 Simone Caronni <negativo17@gmail.com> - 2.5.2.5491-2
+- Drop unused package references: Microsoft.Data.SqlClient, System.ServiceModel.Syndication,
+  System.Memory and System.Configuration.ConfigurationManager. Microsoft.Data.SqlClient pulls in
+  Microsoft.Identity.Client.NativeInterop, whose prebuilt libmsalruntime.so requires
+  libcurl.so.4(CURL_OPENSSL_4), which is not available on Fedora/EPEL.
+
 * Sun Aug 09 2026 Simone Caronni <negativo17@gmail.com> - 2.5.2.5491-1
 - Update to 2.5.2.5491.
 
