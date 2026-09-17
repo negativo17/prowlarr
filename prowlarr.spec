@@ -26,8 +26,8 @@
 %endif
 
 Name:           prowlarr
-Version:        2.5.2.5491
-Release:        2%{?dist}
+Version:        2.6.5.5623
+Release:        1%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -38,7 +38,6 @@ Source0:        https://github.com/Prowlarr/Prowlarr/archive/v%{version}.tar.gz#
 Source1:        %{name}.sysusers.conf
 Source2:        %{name}.service
 Source3:        %{name}.xml
-Patch0:         https://patch-diff.githubusercontent.com/raw/Prowlarr/Prowlarr/pull/2808.patch
 
 BuildRequires:  dotnet-sdk-%{dotnet}
 BuildRequires:  firewalld-filesystem
@@ -135,6 +134,9 @@ find %{buildroot} -name "ffprobe" -exec chmod 0755 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Thu Sep 17 2026 Simone Caronni <negativo17@gmail.com> - 2.6.5.5623-1
+- Update to 2.6.5.5623.
+
 * Wed Sep 02 2026 Simone Caronni <negativo17@gmail.com> - 2.5.2.5491-2
 - Drop unused package references: Microsoft.Data.SqlClient, System.ServiceModel.Syndication,
   System.Memory and System.Configuration.ConfigurationManager. Microsoft.Data.SqlClient pulls in
