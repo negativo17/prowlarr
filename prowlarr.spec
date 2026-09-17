@@ -7,7 +7,7 @@
 %global user %{name}
 %global group %{name}
 
-%global dotnet 8.0
+%global dotnet 10.0
 
 %ifarch x86_64
 %global rid x64
@@ -27,7 +27,7 @@
 
 Name:           prowlarr
 Version:        2.6.5.5623
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Indexer manager/proxy to integrate with your various PVR apps
 License:        GPLv3
 URL:            https://prowlarr.com/
@@ -134,6 +134,9 @@ find %{buildroot} -name "ffprobe" -exec chmod 0755 {} \;
 %{_unitdir}/%{name}.service
 
 %changelog
+* Thu Sep 17 2026 Simone Caronni <negativo17@gmail.com> - 2.6.5.5623-2
+- Build with .NET SDK 10.
+
 * Thu Sep 17 2026 Simone Caronni <negativo17@gmail.com> - 2.6.5.5623-1
 - Update to 2.6.5.5623.
 
